@@ -1,7 +1,15 @@
-feature 'taking turns' do
-  scenario 'end pl1 turn, start pl2 turn' do
-    sign_in_and_play
-    click_button('Attack Mittens')
-    expect(page).to have_content 'Current turn - Dave'
+describe 'taking turns' do
+  context 'seeing the current turn' do
+    scenario 'at the start of the game' do
+      sign_in_and_play
+      expect(page).to have_content "Dave's turn"
+    end
+
+    scenario 'after player 1 attacks' do
+      sign_in_and_play
+      click_button 'Attack'
+      expect(page).not_to have_content "Dave's turn"
+      expect(page).not_to have_content "Mitten's turn"
+    end
   end
 end
