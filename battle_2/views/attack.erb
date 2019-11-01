@@ -2,9 +2,11 @@
 
 <h1>KAPOW! SPLAT! AIIIEEEE!</h1>
 
+<p>New Turn: <%= @game.current_turn.name %></p>
+
 <p><%= @game.player_2.name %>: <%= @game.player_2.hit_points %>HP</p>
 
-<p>Current turn - <%= @game.current_turn.name %></p>
+<p><%= @game.player_1.name %>: <%= @game.player_1.hit_points %>HP</p>
 
 <form action="/play" method='get'>
   <input type="submit" value="OK">
